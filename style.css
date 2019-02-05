@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  display: block;
+}
+
+.logo-box {
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  width: 100px;
+  border: solid black 1px;
+}
+
+.logo {
+  height: 95px;
+  width: 95px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scoreboard {
+  text-align: center;
+}
+
+main {
+  margin-top: 75px;
+}
+
+.quiz-start {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border: black solid 2px;
+  text-align: center;
+}
+
+.quizButton {
+  padding: 5px;
+  border: black solix 2px;
+}
+
+@media screen and (min-width: 700px) {
+  header {
+    display: flex;
+  }
+
+  .logo-box {
+    margin-right: 60%;
+    border: solid black 1px;
+  }
+
+  .logo {
+    height: 95px;
+    width: 95px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .scoreboard {
+    text-align: center;
+    margin-right: 5%;
+  }
+}
