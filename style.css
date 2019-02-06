@@ -23,6 +23,7 @@ header {
 }
 
 .scoreboard {
+  display: none;
   text-align: center;
 }
 
@@ -38,14 +39,24 @@ main {
   text-align: center;
 }
 
+.quiz-form {
+  /*display: none;*/
+
+}
+
 .quizButton {
   padding: 5px;
   border: black solix 2px;
+  margin-bottom: 15px;
+}
+
+.selectedAnswer {
+
 }
 
 @media screen and (min-width: 700px) {
   header {
-    display: flex;
+    display: block;
   }
 
   .logo-box {
