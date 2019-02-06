@@ -5,13 +5,14 @@ function generateQuestionAnswers() {
   console.log('executing generateQuestionAnswers');
   console.log(STORE);
   $('.quiz-form').html('');
-  $('.quiz-form').append(`<h1>${STORE[questionNum].question}</h1>`);
-  $('.quiz-form').append(`<div class="form-container"><form>`);
+  $('.quiz-form').append(`<h1>Question ${questionNum + 1}</h1>`);
+  $('.quiz-form').append(`<form>`);
+  $('.quiz-form').append(`<fieldset><legend>${STORE[questionNum].question}</legend>`);
   for (let i = 0; i < STORE[questionNum].answers.length; i++) {
-    $('.quiz-form').append(`<input type="radio" name="answer" value="${i}">${STORE[questionNum].answers[i]}<br>`)
-
+    $('.quiz-form').append(`<label class="answerOption"><input type="radio" name="answer" value="${i}" required>${STORE[questionNum].answers[i]}</label></br>`)
   };
-  $('.quiz-form').append(`<button type="submit" class="submit">Submit</button></form></div>`);
+  $('quiz-form').append(`</fieldset>`);
+  $('.quiz-form').append(`<button type="submit" class="submit">Submit</button></form>`);
 }
 
 
@@ -39,21 +40,23 @@ function selectAnswer() {
 function submitAnswer() {
   $('body').on('click', '.submit', function() {
     console.log('starting submitAnswer');
-    //get selectedAnswer
+    //get selected Answer
     const checkedAnswer = $("input[name='answer']:checked").val();
     console.log(`${checkedAnswer}`);
-    //check if answer is right, if so, add to score
-    if (checkedAnswer == STORE[questionNum].correctAnswer) {
+    //alert if answer is not selected
+    if (checkedAnswer === undefined) {
+      alert('Please select an answer before submitting!')
+    }
+    //check if answer is right, if so, increase score
+    else if (checkedAnswer == STORE[questionNum].correctAnswer) {
       correctAnswer()
     } else wrongAnswer();
   })
 }
 
-
-
 function nextQuestion() {
   $('body').on('click', '.next', function() {
-    //check if last question
+    //check if there are questions remaining
     if (questionNum < STORE.length - 1) {
     //increment questionNum
     questionNum++;
@@ -63,7 +66,7 @@ function nextQuestion() {
     updateScoreboard();
   }
   else {
-    //last question
+    //last question - go to end Screen
     endScreen()
   }
   })
@@ -71,15 +74,18 @@ function nextQuestion() {
 
 function endScreen() {
   console.log('endScreen');
+  //result text based on final score
   let resultText = ''
   if (score == 10) {let resultText =`<h3>Good job! You were paying attention!</h3>`}
 else if (score >= 7 && score <= 9) {resultText =`<h3>You did okay. You can do better!</h3>`}
 else if (score <= 6 && score >= 4) {resultText =`<h3>Not good. Pay more attention to the instructor</h3>`}
-else {resultText =`<h3>Terrible score. Why are you even here?</h3>`};
+else {resultText =`<h3>Terrible score. You need to pay more attention!</h3>`};
   $('.quiz-form').html('');
   $('.quiz-form').append(`<h2>End of quiz</h2>`);
   $('.quiz-form').append(`<h1>You got ${score} out of 10 correct</h1>`);
   $('.quiz-form').append(`${resultText}`);
+  //button to restart the quiz
+  $('.quiz-form').append(`<button onclick="window.location.reload()" type="submit" class="restart">Restart</button>`)
 
 
 }
