@@ -5,14 +5,12 @@ function generateQuestionAnswers() {
   console.log('executing generateQuestionAnswers');
   console.log(STORE);
   $('.quiz-form').html('');
-  $('.quiz-form').append(`<h1>Question ${questionNum + 1}</h1>`);
-  $('.quiz-form').append(`<form>`);
-  $('.quiz-form').append(`<fieldset><legend>${STORE[questionNum].question}</legend>`);
+  //$('.quiz-form').append(`<h1>Question ${questionNum + 1}</h1>`);
+  $('.quiz-form').append(`<form><fieldset><legend>${STORE[questionNum].question}</legend>`);
   for (let i = 0; i < STORE[questionNum].answers.length; i++) {
-    $('.quiz-form').append(`<label class="answerOption"><input type="radio" name="answer" value="${i}" required>${STORE[questionNum].answers[i]}</label></br>`)
+    $('.quiz-form').append(`<input type="radio" name="answer" value="${i}" required>${STORE[questionNum].answers[i]}</br>`)
   };
-  $('quiz-form').append(`</fieldset>`);
-  $('.quiz-form').append(`<button type="submit" class="submit">Submit</button></form>`);
+  $('.quiz-form').append(`</fieldset><button type="submit" class="submit">Submit</button></form>`);
 }
 
 
@@ -74,6 +72,7 @@ function nextQuestion() {
 
 function endScreen() {
   console.log('endScreen');
+  $('.scoreboard').hide();
   //result text based on final score
   let resultText = ''
   if (score == 10) {let resultText =`<h3>Good job! You were paying attention!</h3>`}
@@ -117,7 +116,6 @@ function wrongAnswer() {
   $('.quiz-form').append(`<h1>${STORE[questionNum].question}</h1>`);
   $('.quiz-form').append(`<h3>WRONG! WHY AREN'T YOU PAYING ATTENTION???</h3>`);
   $('.quiz-form').append(`<h4>Correct answer is: ${STORE[questionNum].correctResponse}</h4>`);
-
   $('.quiz-form').append(`<h4>${STORE[questionNum].feedback}</h4>`);
   $('.quiz-form').append(`<button type="submit" class="next">Next</button></form></div>`);
 }
