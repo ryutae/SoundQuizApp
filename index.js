@@ -3,9 +3,7 @@ let score = 0;
 //generate HTML for the form
 function generateQuestionAnswers() {
   console.log('executing generateQuestionAnswers');
-  console.log(STORE);
   $('.quiz-form').html('');
-  //$('.quiz-form').append(`<h1>Question ${questionNum + 1}</h1>`);
   $('.quiz-form').append(`<form><fieldset><legend>${STORE[questionNum].question}</legend>`);
   for (let i = 0; i < STORE[questionNum].answers.length; i++) {
     $('.quiz-form').append(`<input type="radio" name="answer" value="${i}" required>${STORE[questionNum].answers[i]}</br>`)
