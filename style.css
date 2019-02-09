@@ -6,7 +6,12 @@
 
 body {
   background: url('https://s3.amazonaws.com/pbblogassets/uploads/2017/02/09153006/SE-COVER.jpg') fixed;
-  
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: Arial;
+  color: white;
+  font-size: 20px;
 }
 
 header {
@@ -19,12 +24,12 @@ header {
   margin-right: auto;
   height: 100px;
   width: 100px;
-  border: solid black 1px;
 }
 
 .logo {
-  height: 95px;
-  width: 95px;
+  margin-top: 5%;
+  height: 100px;
+  width: 100px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -32,6 +37,7 @@ header {
 .scoreboard {
   display: none;
   text-align: center;
+  margin-top: 20px;
 }
 
 main {
@@ -39,47 +45,82 @@ main {
 }
 
 .quiz-start {
-  width: 90%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  border: black solid 2px;
   text-align: center;
+  background-color: rgba(94, 83, 83, 0.5);
+}
+
+.quiz-start h4 {
+  margin-top: 20px;
+}
+
+button {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #473c19;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}
+
+button:hover, button:focus {
+  background-color: #473c19;
+  color: white;
 }
 
 .quiz-form {
-  /*display: none;*/
-
+  width: 100%;
+  background-color: rgba(94, 83, 83, 0.5);
+  font-size: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
+  display: block;
+  text-align: center;
 }
 
-.quizButton {
-  padding: 5px;
-  border: black solix 2px;
-  margin-bottom: 15px;
+.answerOption {
+  text-align: left;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
-.selectedAnswer {
+fieldset {
+  border: none;
+  text-align: left;
+}
 
+legend {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.answerOption:hover, .answerOption:focus {
+  background-color: white;
+  color: #473c19;
+  transition: all 0.3s ease-out;
+}
+
+input[type=radio] {
+  margin-right: 10px;
+}
+
+.quiz-form h1, h4{
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 @media screen and (min-width: 700px) {
-  header {
-    display: block;
-  }
-
-  .logo-box {
-    margin-right: 60%;
-    border: solid black 1px;
-  }
-
-  .logo {
-    height: 95px;
-    width: 95px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .scoreboard {
-    text-align: center;
-    margin-right: 5%;
-  }
+.quiz-form, .quiz-start {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
 }

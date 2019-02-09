@@ -1,6 +1,6 @@
 const STORE = [
   {
-    question: 'What are examples of sound sources/inputs?',
+    question: 'What are examples of sound sources?',
     answers: [
       'Mics',
       'Instruments',
