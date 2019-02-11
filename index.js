@@ -4,12 +4,6 @@ let score = 0;
 function generateQuestionAnswers() {
   console.log('executing generateQuestionAnswers');
   $('.quiz-form').html('');
-  /*$('.quiz-form').append(`<form><fieldset><legend>${STORE[questionNum].question}</legend>`);
-  for (let i = 0; i < STORE[questionNum].answers.length; i++) {
-    $('.quiz-form').append(`<label class='answerOption'><input type="radio" class="input" name="answer" value="${i}" required>${STORE[questionNum].answers[i]}</label></br>`)
-  };
-  $('.quiz-form').append(`</fieldset><button type="button" class="submit">Submit</button></form>`);
-*/
 
   let formHTML = '';
   let formAnswers = '';
@@ -78,7 +72,7 @@ function endScreen() {
   //result text based on final score
   let resultText = ''
   if (score == 10) {
-    let resultText = `<h3>Good job! You are a sound master!</h3>`
+    resultText = `<h3>Good job! You are a sound master!</h3>`
   } else if (score >= 7 && score <= 9) {
     resultText = `<h3>You did pretty good. You can do better!</h3>`
   } else if (score <= 6 && score >= 4) {
